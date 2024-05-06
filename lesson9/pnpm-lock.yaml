@@ -8,6 +8,9 @@ dependencies:
   axios:
     specifier: 0.19.0
     version: 0.19.0
+  prettier:
+    specifier: 1.18.2
+    version: 1.18.2
 
 devDependencies:
   '@babel/core':
@@ -3545,6 +3548,12 @@ packages:
     resolution: {integrity: sha512-ESF23V4SKG6lVSGZgYNpbsiaAkdab6ZgOxe52p7+Kid3W3u3bxR4Vfd/o21dmN7jSt0IwgZ4v5MUd26FEtXE9w==}
     engines: {node: '>= 0.8.0'}
     dev: true
+
+  /prettier@1.18.2:
+    resolution: {integrity: sha512-OeHeMc0JhFE9idD4ZdtNibzY0+TPHSpSSb9h8FqtP+YnoZZ1sl8Vc9b1sasjfymH3SonAF4QcA2+mzHPhMvIiw==}
+    engines: {node: '>=4'}
+    hasBin: true
+    dev: false
 
   /pretty-format@24.9.0:
     resolution: {integrity: sha512-00ZMZUiHaJrNfk33guavqgvfJS30sLYf0f8+Srklv0AMPodGGHcoHgksZ3OThYnIvOd+8yMCn0YiEOogjlgsnA==}
