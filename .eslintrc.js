@@ -13,6 +13,7 @@ module.exports = {
     quotes: ["error", "double"],
     "comma-dangle": ["error", "always-multiline", "always"],
     semi: ["error", "always"],
+    "space-before-function-paren": 0,
   },
   overrides: [
     {
