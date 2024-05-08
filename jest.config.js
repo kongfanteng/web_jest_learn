@@ -1,4 +1,4 @@
 module.exports = {
-  preset: '@vue/cli-plugin-unit-jest',
-  testMatch: ['**/__tests__/**/*.(js|jsx|ts|tsx|vue)']
-}
+  preset: "@vue/cli-plugin-unit-jest",
+  testMatch: ["**/__tests__/**/*.(js|jsx|ts|tsx|vue)"],
+};

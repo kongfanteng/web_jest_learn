@@ -10,8 +10,9 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    quotes: "double",
-    "comma-dangle": "always",
+    quotes: ["error", "double"],
+    "comma-dangle": ["error", "always-multiline", "always"],
+    semi: ["error", "always"],
   },
   overrides: [
     {
