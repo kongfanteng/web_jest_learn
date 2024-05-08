@@ -4,7 +4,7 @@
     <ul>
       <li v-for="(item, index) in list" :key="index" data-test="item">
         {{ item }}
-        <span data-test="delete-button" @click="() => deleteItem(index)"
+        <span data-test="delete-button" @click="() => handleDelete(index)"
           >-</span
         >
       </li>
@@ -24,7 +24,7 @@ export default {
     },
   },
   methods: {
-    deleteItem(index) {
+    handleDelete(index) {
       this.$emit("delete", index);
     },
   },
