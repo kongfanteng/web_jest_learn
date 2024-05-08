@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HelloWorld.vue renders props.msg when passed 1`] = `
+<div
+  class="hello"
+>
+  <h1>
+    HelloWorld
+  </h1>
+</div>
+`;
