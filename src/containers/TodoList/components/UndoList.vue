@@ -11,7 +11,7 @@
         data-test="item"
         class="item"
       >
-        {{ item }}
+        {{ item.value }}
         <span
           class="delete"
           data-test="delete-button"
