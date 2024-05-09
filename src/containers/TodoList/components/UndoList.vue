@@ -8,7 +8,7 @@
       <li
         v-for="(item, index) in list"
         :key="index"
-        data-test="item"
+        data-test="list-item"
         class="item"
         @click="() => changeStatus(index)"
       >
@@ -37,14 +37,7 @@
 <script>
 export default {
   name: "UndoList",
-  props: {
-    list: {
-      type: Array,
-      default() {
-        return [];
-      },
-    },
-  },
+  props: ["list"],
   methods: {
     handleDelete(index) {
       this.$emit("delete", index);

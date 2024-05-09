@@ -3,7 +3,7 @@
     <div class="header-content">
       TodoList
       <input
-        data-test="input"
+        data-test="header-input"
         type="text"
         v-model="inputValue"
         @keyup.enter="addTodoItem"
