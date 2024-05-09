@@ -3,7 +3,9 @@ import TodoList from "../../TodoList.vue";
 import { mount } from "@vue/test-utils";
 import store from "../../../../store";
 import UndoList from "../../components/UndoList.vue";
+import axios from "../../__mocks__/axios";
 beforeEach(() => {
+  axios.success = true;
   jest.useFakeTimers();
 });
 
@@ -41,4 +43,17 @@ it(`
   await undoList.vm.$nextTick();
   const listItems = findTestWrapper(wrapper, "list-item");
   expect(listItems.length).toBe(3);
+});
+it(`
+  1. 用户进入页面时，请求远程数据失败
+  2. 列表应该展示空数据，不应该挂掉
+`, async () => {
+  axios.success = false;
+  const wrapper = mount(TodoList, { global: { plugins: [store] } });
+  jest.runAllTimers();
+  await wrapper.vm.$nextTick();
+  const undoList = wrapper.findComponent(UndoList);
+  await undoList.vm.$nextTick();
+  const listItems = findTestWrapper(wrapper, "list-item");
+  expect(listItems.length).toBe(0);
 });

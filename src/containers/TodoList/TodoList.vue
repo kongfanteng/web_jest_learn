@@ -29,9 +29,7 @@ export default {
         .then((res) => {
           this.undoList = res.data;
         })
-        .catch((err) => {
-          console.log(err);
-        });
+        .catch(() => {});
     }, 5000);
   },
   components: {

@@ -18,7 +18,11 @@ const undoList = {
 export default {
   get(url) {
     if (url === "/getUndoList.json") {
-      return Promise.resolve(undoList);
+      if (this.success) {
+        return Promise.resolve(undoList);
+      } else {
+        return Promise.reject(new Error("404"));
+      }
     }
     return Promise.reject(new Error("404"));
   },
