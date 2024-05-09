@@ -14,7 +14,7 @@ it(`
     },
   });
   const inputElem = findTestWrapper(wrapper, "header-input").at(0);
-  const content = "test";
+  const content = "test1";
   inputElem.setValue(content);
   inputElem.trigger("change");
   inputElem.trigger("keyup.enter");
