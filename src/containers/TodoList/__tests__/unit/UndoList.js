@@ -45,4 +45,64 @@ describe("UndoList 组件", () => {
     expect(wrapper.emitted().delete).toBeTruthy();
     expect(wrapper.emitted().delete[0][0]).toBe(1);
   });
+  it("列表项被点击，向外触发 status 事件", () => {
+    const wrapper = shallowMount(UndoList, {
+      props: {
+        list: [
+          { status: "div", value: 1 },
+          { status: "div", value: 2 },
+          { status: "div", value: 3 },
+        ],
+      },
+    });
+    const deleteBtn = findTestWrapper(wrapper, "item").at(1);
+    deleteBtn.trigger("click");
+    expect(wrapper.emitted().status).toBeTruthy();
+    expect(wrapper.emitted().status[0][0]).toBe(1);
+  });
+  it("列表显示一个输入框，两个正常列表内容", () => {
+    const wrapper = shallowMount(UndoList, {
+      props: {
+        list: [
+          { status: "div", value: 1 },
+          { status: "input", value: 2 },
+          { status: "div", value: 3 },
+        ],
+      },
+    });
+    const input = findTestWrapper(wrapper, "input").at(0);
+    expect(input.element.value).toBe("2");
+  });
+  it("输入框失去焦点时，向外触发 reset 事件", () => {
+    const wrapper = shallowMount(UndoList, {
+      props: {
+        list: [
+          { status: "div", value: 1 },
+          { status: "input", value: 2 },
+          { status: "div", value: 3 },
+        ],
+      },
+    });
+    const input = findTestWrapper(wrapper, "input").at(0);
+    input.trigger("blur");
+    expect(wrapper.emitted().reset).toBeTruthy();
+  });
+  it("输入框变化时，向外触发 change 事件", () => {
+    const wrapper = shallowMount(UndoList, {
+      props: {
+        list: [
+          { status: "div", value: 1 },
+          { status: "input", value: 123 },
+          { status: "div", value: 3 },
+        ],
+      },
+    });
+    const input = findTestWrapper(wrapper, "input").at(0);
+    input.trigger("change");
+    expect(wrapper.emitted().change).toBeTruthy();
+    expect(wrapper.emitted().change[0][0]).toEqual({
+      value: "123",
+      index: 1,
+    });
+  });
 });
