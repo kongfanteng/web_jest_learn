@@ -37,7 +37,12 @@
 <script>
 export default {
   name: "UndoList",
-  props: ["list"],
+  props: {
+    list: {
+      type: Array,
+      default: () => [],
+    },
+  },
   methods: {
     handleDelete(index) {
       this.$emit("delete", index);
